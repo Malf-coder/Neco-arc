@@ -89,7 +89,6 @@ class Example(QMainWindow):
         self.movie_screen.setAttribute(Qt.WA_TranslucentBackground)
         self.movie_screen.setScaledContents(True)
         self.movie = QMovie("Gif/neco-arc-melty-blod2.gif")
-        # self.movie = QMovie("Gif/neco-arc-laying-down.gif")
         self.movie_screen.setMovie(self.movie)
         self.movie.start()
         self.oldPos = self.pos()
@@ -127,7 +126,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-melty-blood2.gif")
-            # self.movie = QMovie("Gif/neco-arc-dance.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -135,7 +133,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-lumina2.gif")
-            # self.movie = QMovie("Gif/cute-neko.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -143,7 +140,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-dance 2.gif")
-            # self.movie = QMovie("Gif/tsukihime-anime.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -151,7 +147,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-class2.gif")
-            # self.movie = QMovie("Gif/breakdance-neco-arc.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -159,7 +154,7 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/necoarc-melty-blood2.gif")
-            # self.movie = QMovie("Gif/neco-arc-laying-down.gif")
+           
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -167,7 +162,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 300, 300)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-neco2.gif")
-            # self.movie = QMovie("Gif/neco-arc-laying-down.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
