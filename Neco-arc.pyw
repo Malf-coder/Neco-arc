@@ -75,6 +75,7 @@ class Example(QMainWindow):
         self.step = 0
         self.waitingFlag = False
         self.NecoDanceFlag = False
+        self.NecoDrink = False
 
         self.dataDanceNecoGif = ["Gif/neco-arc-taunt2.gif", "Gif/necoarc-melty-blood2FastDanse.gif",
                         "Gif/necoarc-melty-blood2.gif", "Gif/neco-arc-class2.gif", "Gif/neco-arc-dance 2.gif",
@@ -91,7 +92,6 @@ class Example(QMainWindow):
         self.movie_screen.setAttribute(Qt.WA_TranslucentBackground)
         self.movie_screen.setScaledContents(True)
         self.movie = QMovie("Gif/neco-arc-melty-blod2.gif")
-        # self.movie = QMovie("Gif/neco-arc-laying-down.gif")
         self.movie_screen.setMovie(self.movie)
         self.movie.start()
         self.oldPos = self.pos()
@@ -139,21 +139,30 @@ class Example(QMainWindow):
             self.movie.start()
             self.time = 0
 
+    def drinkingNeco(self):
+        self.movie_screen.setGeometry(165, 31, 335, 417)
+        self.movie_screen.setScaledContents(True)
+        self.movie = QMovie("Gif/neco-arc-mbtl.gif")
+        self.movie_screen.setMovie(self.movie)
+        self.movie.start()
 
 
     def keyPressEvent(self, event):
         key = event.key()
 
         if key:
+
             if self.waitingFlag:
                 self.waiting.stop()
                 self.waitingFlag = False
+            if self.NecoDrink:
+                self.drink.stop()
 
         if key == Qt.Key_Q:
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-melty-blood2.gif")
-            # self.movie = QMovie("Gif/neco-arc-dance.gif")
+
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -161,7 +170,7 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-lumina2.gif")
-            # self.movie = QMovie("Gif/cute-neko.gif")
+
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -169,7 +178,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-dance 2.gif")
-            # self.movie = QMovie("Gif/tsukihime-anime.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -177,15 +185,21 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-class2.gif")
-            # self.movie = QMovie("Gif/breakdance-neco-arc.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
+
+            self.NecoDrink = True
+            self.drink = QTimer()
+            self.drink.timeout.connect(self.drinkingNeco)
+            self.drink.setSingleShot(True)
+            self.drink.start(3000)
+
+
 
         if key == Qt.Key_T:
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/necoarc-melty-blood2.gif")
-            # self.movie = QMovie("Gif/neco-arc-laying-down.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
@@ -193,7 +207,6 @@ class Example(QMainWindow):
             self.movie_screen.setGeometry(200, 50, 300, 300)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-neco2.gif")
-            # self.movie = QMovie("Gif/neco-arc-laying-down.gif")
             self.movie_screen.setMovie(self.movie)
             self.movie.start()
 
