@@ -85,8 +85,8 @@ class Example(QMainWindow):
         self.movie_screen.setWindowFlags(Qt.MSWindowsFixedSizeDialogHint)
         self.setFixedSize(700, 700)
 
-        # self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.MSWindowsFixedSizeDialogHint)
-        # self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.MSWindowsFixedSizeDialogHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
 
         self.movie_screen.setAttribute(Qt.WA_TranslucentBackground)
         self.movie_screen.setScaledContents(True)
