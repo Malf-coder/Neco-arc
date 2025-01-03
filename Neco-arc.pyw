@@ -7,6 +7,9 @@ import random
 class Example2(QWidget):
     def __init__(self):
         super().__init__()
+        self.EndAlertAnim = None
+        self.AlertAnim = None
+        
         self.Alert = QLabel(self)
         self.Alert.setGeometry(0, 0, 300, 100)
         self.Alert.setStyleSheet("border-width: 5px; "
@@ -72,6 +75,7 @@ class Example(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.randgif = None
         self.step = 0
         self.waitingFlag = False
         self.NecoDanceFlag = False
@@ -269,7 +273,6 @@ class Example(QMainWindow):
 
     def mouseMoveEvent(self, event):
         delta = QPoint(event.globalPos() - self.oldPos)
-        print(delta)
         self.move(self.x() + delta.x(), self.y() + delta.y())
         self.oldPos = event.globalPos()
 
