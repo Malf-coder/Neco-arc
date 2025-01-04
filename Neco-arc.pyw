@@ -72,9 +72,10 @@ class Example2(QWidget):
 
 
 class Example(QMainWindow):
-    def __init__(self):
+    def __init__(self,DebugMode):
         super().__init__()
 
+        self.DebugMode = DebugMode
         self.randgif = None
         self.step = 0
         self.waitingFlag = False
@@ -88,10 +89,26 @@ class Example(QMainWindow):
         self.movie_screen = QLabel(self)
         self.movie_screen.setGeometry(200, 50, 250, 400)
         self.movie_screen.setWindowFlags(Qt.MSWindowsFixedSizeDialogHint)
-        self.setFixedSize(700, 700)
+        self.setFixedSize(700, 600)
+        if self.DebugMode:
+            print("On debug mode")
+            self.setStyleSheet("background-color: yellow;")
 
-        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.MSWindowsFixedSizeDialogHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
+            self.movie_screen_debugText = QLabel(self)
+            self.movie_screen_debugText.setGeometry(100, 470, 200, 50)
+            self.movie_screen_debugText.setStyleSheet("background: green;")
+
+            self.movie_screen_debug = QLabel(self)
+            self.movie_screen_debug.setGeometry(200, 50, 250, 400)
+            self.movie_screen_debug.setStyleSheet("background: lightgreen;")
+            self.opacity_effect = QGraphicsOpacityEffect()
+            self.opacity_effect.setOpacity(0.5)
+            self.movie_screen_debug.setGraphicsEffect(self.opacity_effect)
+
+        else:
+            self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.MSWindowsFixedSizeDialogHint)
+            self.setAttribute(Qt.WA_TranslucentBackground)
+
 
         self.movie_screen.setAttribute(Qt.WA_TranslucentBackground)
         self.movie_screen.setScaledContents(True)
@@ -144,6 +161,10 @@ class Example(QMainWindow):
             self.time = 0
 
     def drinkingNeco(self):
+
+        if self.DebugMode:
+            self.movie_screen_debug.setGeometry(165, 31, 335, 417)
+
         self.movie_screen.setGeometry(165, 31, 335, 417)
         self.movie_screen.setScaledContents(True)
         self.movie = QMovie("Gif/neco-arc-mbtl.gif")
@@ -163,6 +184,10 @@ class Example(QMainWindow):
                 self.drink.stop()
 
         if key == Qt.Key_Q:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 300, 400)
+
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-melty-blood2.gif")
@@ -171,6 +196,10 @@ class Example(QMainWindow):
             self.movie.start()
 
         if key == Qt.Key_W:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 400, 400)
+
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-lumina2.gif")
@@ -179,6 +208,10 @@ class Example(QMainWindow):
             self.movie.start()
 
         if key == Qt.Key_E:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 400, 400)
+
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-dance 2.gif")
@@ -186,6 +219,10 @@ class Example(QMainWindow):
             self.movie.start()
 
         if key == Qt.Key_R:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 300, 400)
+
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-class2.gif")
@@ -201,6 +238,10 @@ class Example(QMainWindow):
 
 
         if key == Qt.Key_T:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 300, 400)
+
             self.movie_screen.setGeometry(200, 50, 300, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/necoarc-melty-blood2.gif")
@@ -208,6 +249,10 @@ class Example(QMainWindow):
             self.movie.start()
 
         if key == Qt.Key_Y:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 300, 400)
+
             self.movie_screen.setGeometry(200, 50, 300, 300)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-neco2.gif")
@@ -215,6 +260,10 @@ class Example(QMainWindow):
             self.movie.start()
 
         if key == Qt.Key_U:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 250, 400)
+
             self.movie_screen.setGeometry(200, 50, 250, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-melty-blod2.gif")
@@ -234,6 +283,10 @@ class Example(QMainWindow):
             self.waiting.start()
 
         if key == Qt.Key_D:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 400, 400)
+
             self.movie_screen.setGeometry(200, 50, 400, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/neco-arc-taunt2.gif")
@@ -242,6 +295,10 @@ class Example(QMainWindow):
             self.movie.start()
 
         if key == Qt.Key_A:
+
+            if self.DebugMode:
+                self.movie_screen_debug.setGeometry(200, 50, 450, 400)
+
             self.movie_screen.setGeometry(150, 50, 450, 400)
             self.movie_screen.setScaledContents(True)
             self.movie = QMovie("Gif/necoarc-melty-blood2FastDanse.gif")
@@ -269,7 +326,10 @@ class Example(QMainWindow):
 
     def mousePressEvent(self, event):
         self.oldPos = event.globalPos()
-        print(self.oldPos)
+        
+        if self.DebugMode:
+            self.movie_screen_debugText.setText(str(self.oldPos))
+
 
     def mouseMoveEvent(self, event):
         delta = QPoint(event.globalPos() - self.oldPos)
@@ -279,7 +339,7 @@ class Example(QMainWindow):
 
 if __name__ == "__main__":
     qApp = QApplication([])
-    app = Example()
+    app = Example(DebugMode=False)
     alert = Example2()
     app.show()
     qApp.exec()
