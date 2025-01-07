@@ -44,7 +44,7 @@ class Example2(QWidget):
         self.AlertAnim.setEndValue(QPoint(QApplication.desktop().width() - 500, QApplication.desktop().height() - 100))
         self.AlertAnim.setDuration(800)
         self.AlertAnim.start()
-        QTimer.singleShot(1000.0, self.EndAnimationAlert)
+        QTimer.singleShot(1000, self.EndAnimationAlert)
 
     def AlertOnAnimation(self):
         self.Alert.setText("Enabled auto mode")
@@ -136,7 +136,8 @@ class Example(QMainWindow):
         self.pathMovie = self.movie.fileName()
 
     def randomNecoDance(self):
-        self.movie_screen_debugText4.setText(str(self.time_dance))
+        if self.DebugMode:
+            self.movie_screen_debugText4.setText(str(self.time_dance))
         self.time_dance += 1  # !!!
         if self.time_dance % 10 == 0:
             self.randgif = random.choice(self.dataDanceNecoGif)
@@ -182,7 +183,8 @@ class Example(QMainWindow):
 
     def waitingNecoTimer(self):
         self.waiting_timer += 1
-        self.movie_screen_debugText4.setText(str(self.waiting_timer))
+        if self.DebugMode:
+            self.movie_screen_debugText4.setText(str(self.waiting_timer))
 
         if self.waiting_timer == 30:
             self.movie_screen.setGeometry(200, 50, 250, 400)
